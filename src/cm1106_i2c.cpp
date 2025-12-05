@@ -28,10 +28,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 void CM1106_I2C::begin(TwoWire &wirePort)
 {
-  _i2cPort = &wirePort; //Grab which port the user wants us to use
+  _i2cPort = &wirePort; // Grab which port the user wants us to use
 
-  //We expect caller to begin their I2C port, with the speed of their choice external to the library
-  //But if they forget, we start the hardware here.
+  // We expect caller to begin their I2C port, with the speed of their choice external to the library
+  // But if they forget, we start the hardware here.
   _i2cPort->begin();
 }
 
@@ -88,7 +88,7 @@ uint8_t CM1106_I2C::measure_result()
 
   // Check checksum
   uint8_t check_code = 0;
-  
+
   for (uint8_t i = 0; i < 4; i++)
   {
     check_code -= _buffer[i];
@@ -192,7 +192,7 @@ uint8_t CM1106_I2C::auto_zero_setting(uint8_t zero_setting_switch, uint8_t perio
 
   // Check checksum
   uint8_t check_code = 0;
-  
+
   for (uint8_t i = 0; i < 7; i++)
   {
     check_code -= _buffer[i];
@@ -352,7 +352,7 @@ uint8_t CM1106_I2C::read_serial_number()
 
   // Check checksum
   uint8_t check_code = 0;
-  
+
   for (uint8_t i = 0; i < 11; i++)
   {
     check_code -= _buffer[i];
